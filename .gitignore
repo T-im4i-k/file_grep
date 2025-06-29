@@ -1,0 +1,11 @@
+# build directory
+./build/*
+
+# executable files
+*.obj
+*.a
+*.o
+*.exe
+
+# test directory
+./test/*
