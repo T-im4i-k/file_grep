@@ -1,0 +1,1 @@
+The project aims to implement a script able to recursively find all test files in a given directory containing a given string.
