@@ -1,11 +1,32 @@
-# build directory
-./build/*
+# VS Code
+.vscode/
 
-# executable files
-*.obj
-*.a
-*.o
+# CLion
+.idea/
+
+# Build directories
+./build/
+./bin/
+./obj/
+
+# Test directories
+./test/
+
+# Binary files
 *.exe
+*.out
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
 
-# test directory
-./test/*
+# Text files
+*.txt
+
+# Log files
+*.log
+*.tmp
+*.temp
