@@ -29,7 +29,7 @@ void FileReader::seekg(const size_t pos)
     std::string buff(string_size, '\0');
     file_stream_.read(buff.data(), string_size);
 
-    if (fail() || file_stream_.gcount() != string_size)
+    if (fail() || file_stream_.gcount() != static_cast<long>(string_size))
     {
         return {};
     }
