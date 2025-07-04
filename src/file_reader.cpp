@@ -9,7 +9,7 @@ void FileReader::seekg(const size_t pos)
     file_stream_.seekg(static_cast<long>(pos));
     if (fail())
     {
-        throw std::runtime_error("Failed To Set Read Position In File: " + file_name_);
+        throw std::ios_base::failure("Failed To Set Read Position In File: " + file_name_);
     }
 }
 
@@ -18,7 +18,7 @@ void FileReader::seekg(const size_t pos)
     long pos = file_stream_.tellg();
     if (fail() || pos < 0)
     {
-        throw std::runtime_error("Failed To Get Read Position In File: " + file_name_);
+        throw std::ios_base::failure("Failed To Get Read Position In File: " + file_name_);
     }
 
     return static_cast<size_t>(pos);
