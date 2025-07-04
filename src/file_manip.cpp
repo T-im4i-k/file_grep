@@ -11,7 +11,7 @@ FileManip::FileManip(const std::string &file_name, OpenMods mods) : file_name_(f
 
     if (fail())
     {
-        throw std::runtime_error(
+        throw std::ios_base::failure(
             "Failed To Open The File: " + fileName());
     }
 }
@@ -21,7 +21,7 @@ void FileManip::close()
     file_stream_.close();
     if (fail())
     {
-        throw std::runtime_error(
+        throw std::ios_base::failure(
             "Failed To Close The File: " + fileName());
     }
 }
