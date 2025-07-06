@@ -5,12 +5,12 @@
 .idea/
 
 # Build directories
-./build/
-./bin/
-./obj/
+build/
+bin/
+obj/
 
 # Test directories
-./test/
+test/
 
 # Binary files
 *.exe
@@ -22,6 +22,9 @@
 *.dylib
 *.a
 *.lib
+
+# Dependency files
+*.d
 
 # Text files
 *.txt
