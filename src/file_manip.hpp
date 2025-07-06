@@ -2,17 +2,20 @@
 
 #include <string>
 #include <fstream>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 class FileManip
 {
 public:
     using OpenMods = std::initializer_list<std::ios_base::openmode>;
     
-    FileManip(const std::string &file_name, OpenMods mods);
+    FileManip(const fs::path &file_name, OpenMods mods);
 
     void close();
 
-    [[nodiscard]] const std::string &fileName() const;
+    [[nodiscard]] const fs::path &fileName() const;
 
     [[nodiscard]] bool fail() const;
 
@@ -22,5 +25,5 @@ public:
 
 protected:
     std::fstream file_stream_;
-    std::string file_name_;
+    fs::path file_name_;
 };
