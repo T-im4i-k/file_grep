@@ -5,7 +5,7 @@ DirIterator::DirIterator(const fs::path &dir_path) : ec_(), dir_it_(dir_path, ec
     if (fail())
     {
         throw fs::filesystem_error(
-            "Failed To Construct Directory Iterator For Directory: " + dirPath().string(), ec_);
+            "DirIterator::DirIterator: Failed To Construct Directory Iterator For Directory \"" + dirPath().string() + "\"", ec_);
     }
 }
 
@@ -14,7 +14,7 @@ void DirIterator::next()
     if (end())
     {
         throw std::out_of_range(
-            "Attempt To Access next() After end() Of Directory Iterator For Directory: " + dirPath().string());
+            "DirIterator::next: Failed To Increment Directory Iterator For Directory \"" + dirPath().string() + "\"");
     }
 
     dir_it_.increment(ec_);
@@ -22,7 +22,7 @@ void DirIterator::next()
     if (fail())
     {
         throw fs::filesystem_error(
-            "Failed To Increment Directory Iterator For Directory: " + dirPath().string(), ec_);
+            "DirIterator::next: Failed To Increment Directory Iterator For Directory \"" + dirPath().string() + "\"", ec_);
     }
 }
 
@@ -31,7 +31,7 @@ void DirIterator::next()
     if (end())
     {
         throw std::out_of_range(
-            "Attempt To Access curr() After end() Of Directory Iterator For Directory: " + dirPath().string());
+            "DirIterator::curr: Failed To Access Current Entry Of Directory Iterator For Directory \"" + dirPath().string() + "\"");
     }
     return *dir_it_;
 }
@@ -60,6 +60,6 @@ void DirIterator::reset()
     if (fail())
     {
         throw fs::filesystem_error(
-            "Failed To Reset Directory Iterator For Directory: " + dirPath().string(), ec_);
+            "DirIterator::reset: Failed To Reset Directory Iterator For Directory \"" + dirPath().string() + "\"", ec_);
     }
 }
