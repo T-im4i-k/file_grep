@@ -12,11 +12,11 @@ public:
 
     void close();
 
-    const std::string &fileName() const;
+    [[nodiscard]] const std::string &fileName() const;
 
-    bool fail() const;
+    [[nodiscard]] bool fail() const;
 
-    bool isOpen() const;
+    [[nodiscard]] bool isOpen() const;
 
     ~FileManip() = default;
 
