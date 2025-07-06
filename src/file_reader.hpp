@@ -7,7 +7,7 @@
 class FileReader : public FileManip
 {
 public:
-    FileReader(const fs::path &file_name);
+    FileReader(const fs::path &file_path);
 
     void seekg(const size_t pos);
 
