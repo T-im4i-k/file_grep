@@ -12,7 +12,7 @@ FileManip::FileManip(const fs::path &file_path, OpenMods mods) : file_path_(file
     if (fail())
     {
         throw std::ios_base::failure(
-            "Failed To Open The File: " + filePath().string());
+            "FileManip::FileManip: Failed To Open The File \"" + filePath().string() + "\"");
     }
 }
 
@@ -22,7 +22,7 @@ void FileManip::close()
     if (fail())
     {
         throw std::ios_base::failure(
-            "Failed To Close The File: " + filePath().string());
+            "FileManip::close: Failed To Close The File \"" + filePath().string() + "\"");
     }
 }
 
