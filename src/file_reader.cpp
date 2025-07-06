@@ -10,7 +10,7 @@ void FileReader::seekg(const size_t pos)
     if (fail())
     {
         throw std::ios_base::failure(
-            "Failed To Set Read Position In File: " + filePath().string());
+            "FileReader::seekg: Failed To Set Read Position In File \"" + filePath().string() + "\"");
     }
 }
 
@@ -20,7 +20,7 @@ void FileReader::seekg(const size_t pos)
     if (fail() || pos < 0)
     {
         throw std::ios_base::failure(
-            "Failed To Get Read Position In File: " + filePath().string());
+            "FileReader::tellg: Failed To Get Read Position In File >" + filePath().string() + "\"");
     }
 
     return static_cast<size_t>(pos);
