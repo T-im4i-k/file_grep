@@ -11,11 +11,11 @@ class FileManip
 public:
     using OpenMods = std::initializer_list<std::ios_base::openmode>;
     
-    FileManip(const fs::path &file_name, OpenMods mods);
+    FileManip(const fs::path &file_path, OpenMods mods);
 
     void close();
 
-    [[nodiscard]] const fs::path &fileName() const;
+    [[nodiscard]] const fs::path &filePath() const;
 
     [[nodiscard]] bool fail() const;
 
@@ -25,5 +25,5 @@ public:
 
 protected:
     std::fstream file_stream_;
-    fs::path file_name_;
+    fs::path file_path_;
 };
