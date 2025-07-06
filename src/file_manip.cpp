@@ -1,6 +1,6 @@
 #include "file_manip.hpp"
 
-FileManip::FileManip(const std::string &file_name, OpenMods mods) : file_name_(file_name)
+FileManip::FileManip(const fs::path &file_name, OpenMods mods) : file_name_(file_name)
 {
     auto open_mode = std::ios_base::openmode(0);
     for (auto mode : mods)
@@ -12,7 +12,7 @@ FileManip::FileManip(const std::string &file_name, OpenMods mods) : file_name_(f
     if (fail())
     {
         throw std::ios_base::failure(
-            "Failed To Open The File: " + fileName());
+            "Failed To Open The File: " + fileName().string());
     }
 }
 
@@ -22,11 +22,11 @@ void FileManip::close()
     if (fail())
     {
         throw std::ios_base::failure(
-            "Failed To Close The File: " + fileName());
+            "Failed To Close The File: " + fileName().string());
     }
 }
 
-const std::string &FileManip::fileName() const
+const fs::path &FileManip::fileName() const
 {
     return file_name_;
 }
