@@ -1,6 +1,6 @@
 #include "file_reader.hpp"
 
-FileReader::FileReader(const fs::path &file_name) : FileManip(file_name, {std::ios_base::in})
+FileReader::FileReader(const fs::path &file_path) : FileManip(file_path, {std::ios_base::in})
 {
 }
 
@@ -10,7 +10,7 @@ void FileReader::seekg(const size_t pos)
     if (fail())
     {
         throw std::ios_base::failure(
-            "Failed To Set Read Position In File: " + fileName().string());
+            "Failed To Set Read Position In File: " + filePath().string());
     }
 }
 
@@ -20,7 +20,7 @@ void FileReader::seekg(const size_t pos)
     if (fail() || pos < 0)
     {
         throw std::ios_base::failure(
-            "Failed To Get Read Position In File: " + fileName().string());
+            "Failed To Get Read Position In File: " + filePath().string());
     }
 
     return static_cast<size_t>(pos);
