@@ -4,6 +4,9 @@
 
 #include <optional>
 #include <filesystem>
+#include <string>
+
+namespace fs = std::filesystem;
 
 class FileReader : public FileManip
 {
