@@ -3,6 +3,7 @@
 #include "file_manip.hpp"
 
 #include <optional>
+#include <filesystem>
 
 class FileReader : public FileManip
 {
