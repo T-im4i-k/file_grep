@@ -25,6 +25,8 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const RollStr &roll_str);
 
 private:
+    [[nodiscard]] const char &atImpl(const size_t idx) const;
+
     std::string str_;
     size_t begin_offset_;
 };
