@@ -71,5 +71,46 @@ void RollStr::roll_forward(const char new_char)
 
 std::ostream &operator<<(std::ostream &os, const RollStr &roll_str)
 {
-    return os << static_cast<std::string>(roll_str);
+    for (size_t i = 0; i < roll_str.size(); ++i)
+    {
+        os << roll_str[i];
+    }
+
+    return os;
+}
+
+[[nodiscard]] bool RollStr::operator==(const std::string &rhs) const
+{
+    if (size() != rhs.size())
+    {
+        return false;
+    }
+
+    for (size_t i = 0; i < size(); ++i)
+    {
+        if ((*this)[i] != rhs[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+[[nodiscard]] bool RollStr::operator==(const RollStr &rhs) const
+{
+    if (size() != rhs.size())
+    {
+        return false;
+    }
+
+    for (size_t i = 0; i < size(); ++i)
+    {
+        if ((*this)[i] != rhs[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
