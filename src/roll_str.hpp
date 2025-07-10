@@ -6,7 +6,7 @@
 class RollStr
 {
 public:
-    explicit RollStr(std::string str);
+    explicit RollStr(std::string str = "");
 
     RollStr &operator=(std::string str);
 
