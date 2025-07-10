@@ -2,6 +2,8 @@
 
 #include "roll_str.hpp"
 
+#include <string>
+
 class RollStrHash
 {
 public:
