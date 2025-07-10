@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-explicit RollStr::RollStr(std::string str) : str_(std::move(str)), begin_offset_(0)
+RollStr::RollStr(std::string str) : str_(std::move(str)), begin_offset_(0)
 {
 }
 
@@ -14,7 +14,7 @@ RollStr &RollStr::operator=(std::string str)
     return *this;
 }
 
-explicit RollStr::operator std::string() const
+RollStr::operator std::string() const
 {
     std::string buff(size(), '\0');
 
@@ -37,12 +37,7 @@ void RollStr::roll_forward(const char new_char)
     begin_offset_ = (begin_offset_ + 1) % size();
 }
 
-[[nodiscard]] char &RollStr::operator[](const size_t idx)
-{
-    return const_cast<char &>((*this)[idx]);
-}
-
-[[nodiscard]] const char &RollStr::operator[](const size_t idx) const
+[[nodiscard]] const char &RollStr::atImpl(const size_t idx) const
 {
     if (idx >= size())
     {
@@ -52,6 +47,16 @@ void RollStr::roll_forward(const char new_char)
 
     const size_t real_idx = (idx + begin_offset_) % size();
     return str_[real_idx];
+}
+
+[[nodiscard]] char &RollStr::operator[](const size_t idx)
+{
+    return const_cast<char &>(atImpl(idx));
+}
+
+[[nodiscard]] const char &RollStr::operator[](const size_t idx) const
+{
+    return atImpl(idx);
 }
 
 [[nodiscard]] size_t RollStr::size() const
