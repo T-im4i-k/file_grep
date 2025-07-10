@@ -24,6 +24,10 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const RollStr &roll_str);
 
+    [[nodiscard]] bool operator==(const std::string &rhs) const;
+
+    [[nodiscard]] bool operator==(const RollStr &rhs) const;
+
 private:
     [[nodiscard]] const char &atImpl(const size_t idx) const;
 
