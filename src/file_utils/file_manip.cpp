@@ -26,17 +26,21 @@ void FileManip::close()
     }
 }
 
-const fs::path &FileManip::filePath() const
+[[nodiscard]] const fs::path &FileManip::filePath() const
 {
     return file_path_;
 }
 
-bool FileManip::fail() const
+[[nodiscard]] bool FileManip::fail() const
 {
     return file_stream_.fail();
 }
 
-bool FileManip::isOpen() const
+[[nodiscard]] bool FileManip::eof() const{
+    return file_stream_.eof();
+}
+
+[[nodiscard]] bool FileManip::isOpen() const
 {
     return file_stream_.is_open();
 }

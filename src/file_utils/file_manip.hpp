@@ -18,6 +18,8 @@ public:
 
     [[nodiscard]] bool fail() const;
 
+    [[nodiscard]] bool eof() const;
+
     [[nodiscard]] bool isOpen() const;
 
     ~FileManip() = default;
