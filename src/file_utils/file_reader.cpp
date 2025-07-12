@@ -33,6 +33,11 @@ void FileReader::seekg(const size_t pos)
 
     if (fail() || file_stream_.gcount() != static_cast<long>(string_size))
     {
+        if (!eof())
+        {
+            throw std::ios_base::failure(
+                "FileReader::readToString: Failed To Read String From File \"" + filePath().string() + "\"");
+        }
         return {};
     }
 
@@ -46,6 +51,11 @@ void FileReader::seekg(const size_t pos)
 
     if (fail())
     {
+        if (!eof())
+        {
+            throw std::ios_base::failure(
+                "FileReader::readChar: Failed To Read Char From File \"" + filePath().string() + "\"");
+        }
         return {};
     }
     return c;
